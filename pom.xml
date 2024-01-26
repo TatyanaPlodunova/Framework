@@ -15,35 +15,27 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.11.0</version>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.seleniumhq.selenium</groupId>-->
-<!--            <artifactId>selenium-java</artifactId>-->
-<!--            <version>4.11.0</version>-->
-<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.6.0</version>
+        </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.webjars.npm/webdriver-manager &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.webjars.npm</groupId>-->
-<!--            <artifactId>webdriver-manager</artifactId>-->
-<!--            <version>13.0.0-beta</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.testng</groupId>-->
-<!--            <artifactId>testng</artifactId>-->
-<!--            <version>7.7.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
         <dependency>
@@ -52,15 +44,11 @@
             <version>2.0.9</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
-            <version>4.13.0</version>
-        </dependency>
-
     </dependencies>
 
 </project>
 
 <!--Все зависимости берем на сайте https://mvnrepository.com/ - смотрим, чтобы версия не содержала alpha, и чтобы ей пользовалось достаточно много человек.-->
-<!--Необходимые Dependencies (библиотеки): TestNg+, Selenium+, WebDriver manager+, slf4j-api (логгер)-->
+<!-- selenium-java конфликтовал с хром драйвером, его пришлось удалить
+// Необходимые Dependencies (библиотеки): TestNg+, Selenium+, WebDriver manager+, slf4j-api (логгер)-->
+

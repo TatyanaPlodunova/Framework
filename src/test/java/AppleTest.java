@@ -1,11 +1,14 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AppleTest {
     public static void main(String[] args) {
-        ChromeDriver driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
         driver.get("https://www.apple.com/");
 
         // 2. Нажать кнопку поиска
@@ -14,9 +17,13 @@ public class AppleTest {
 
         // 3. Найти "iPhone 15"
         WebElement searchInput = driver.findElement(By.xpath("//input[@class='globalnav-searchfield-input']"));
-        searchInput.sendKeys("iPhone 15", Keys.ENTER);
+        searchInput.isDisplayed();
+        System.out.println(searchInput.isDisplayed());
+        // проверить видимость черной выпадашки - по элементу который там есть (например кусочек текста)
+        // проверить видимость поля с дополнительным аттрибутом(на скрине)
 
         // 4. Проверить, что результаты поиска содержат "iPhone 15"
+        // локатор который не затрагивает новости, а затрагивает только телефоны
 
         driver.quit();
     }
