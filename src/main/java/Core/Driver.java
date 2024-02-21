@@ -9,11 +9,18 @@ import java.time.Duration;
 public class Driver {
     private static WebDriver driver; // поля в классе должны быть защищены private
 
+    private Driver() {
+    } // приватный конструктор драйвер, что бы невозможно было создать объект класса Driver в другом месте
+
     public static WebDriver getWebDriver() { // в методе указали WebDriver вместо void
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(); // объявляем переменную драйвер
+        if (driver == null) {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver(); // объявляем переменную драйвер
+        }
         return driver; // возвращаем driver типа WebDriver
     }
+    // почитать про паттерн сингл тон
+    // открытие браузера - сделали так, что бы открывался только один браузер
 
     public static void openPage(String page) { // дописали void т.к не надо return
 
