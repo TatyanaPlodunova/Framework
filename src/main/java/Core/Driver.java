@@ -19,7 +19,8 @@ public class Driver {
         }
         return driver; // возвращаем driver типа WebDriver
     }
-    // почитать про паттерн сингл тон
+    //
+    //  todo почитать про паттерн сингл тон
     // открытие браузера - сделали так, что бы открывался только один браузер
 
     public static void openPage(String page) { // дописали void т.к не надо return
