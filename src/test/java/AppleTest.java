@@ -1,19 +1,18 @@
-import Business.HomePage;
-import Business.ResultPage;
-import Steps.VerifyResult;
+import Steps.Steps;
 import org.testng.annotations.Test;
-import org.testng.Assert;
 
 public class AppleTest extends BaseTest {
 
     @Test(description = "Проверка соответствия результатов поиска запросу")
     public void verifySearchResult() {
-        final String searchValue = "iPhone 15";
-        HomePage homePage = new HomePage(); // создаем новый объект homePage класса HomePage
-        homePage.clickSearchButton(); // 2. Нажимаем кнопку поиска
-        homePage.enterValueInSearchInput();
-        homePage.clickEnterOnSearchInput();
-}}
+        final String searchValue = "iPhone 12";
+
+        Steps steps = new Steps();
+        steps.enterValueAndSearch(searchValue);
+        steps.verifySearchResult(searchValue);
+
+    }
+}
 
 // Test layer (находится в папке src -> test -> java)
 // здесь будет тестовый класс AppleTest, в котором находится тестовый метод (тест).
@@ -22,7 +21,7 @@ public class AppleTest extends BaseTest {
 
 //поставить аннотацию @тест над методом и назвать его понятным названием
 
-// todo выделить класс steps, где будут собраны типовые шаги
+// выделить класс steps, где будут собраны типовые шаги
 
 // todo - добавить логи slf4j (например к степам - подписать что делает степ) - погуглить
 

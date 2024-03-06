@@ -14,9 +14,9 @@ public class HomePage extends BasePage {
         searchButtonElement.click();
     }
 
-    public void enterValueInSearchInput() {
+    public void enterValueInSearchInput(String searchValue) {
         WebElement searchInputElement = Driver.waitElementIsVisible(searchInput);
-        searchInputElement.sendKeys("iPhone 15");
+        searchInputElement.sendKeys(searchValue);
     }
 
     public void clickEnterOnSearchInput() {
@@ -32,4 +32,4 @@ public class HomePage extends BasePage {
 // внутри элементы - поля класса и методы - что с этими элементами делаем.
 // Все действия с элементами должны быть залогированы. Т.е. должен быть лог, в котором понятно описано действие.
 // By.xpath("//a[@class='globalnav-link globalnav-link-search']") - нестабильный локатор из-за пробела !!!
-// todo вынести iPhone 15 в переменные
+// вынести iPhone 15 в переменные

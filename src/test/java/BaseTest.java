@@ -12,7 +12,7 @@ public class BaseTest {
         Driver.openPage("https://www.apple.com/");
     }
 
-    @AfterTest
+    //@AfterTest
     public static void closeBrowser() {
         Driver.closeBrowser();
     }

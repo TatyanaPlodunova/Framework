@@ -23,17 +23,9 @@ public class ResultPage extends BasePage {
 
         return resultList; // возвращение листа булиевых переменных
     }
-
-    public void verifySearchResult(List<Boolean> resultList) {
-        int size = resultList.size(); // размер листа булиевых переменных
-        for (int i = 0; i < size; ++i) { // цикл для проверки каждой переменной
-            Boolean result = resultList.get(i); // вычленение i элемента из листа
-            // Assert.assertTrue(result, "В результатах поиска нет искомого значения" + searchValue);
-        }
-
-    }}
+}
 
 // все значения в скобках - вынести в переменные (iPhone 15) - по аналогии как мы сделали с названием сайта
-// TODO создать класс степс там где тест-джава.
+//  создать класс степс там где тест-джава.
 //  добавить метод verifySearchResult. в цикле проверить ассерт - что у нас каждый результат из списка = тру
 
