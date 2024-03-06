@@ -1,20 +1,23 @@
 import Core.Driver;
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.Assert;
 
-public abstract class BaseTest {
 
+public class BaseTest {
+
+    @BeforeTest
     public static void openBrowser() {
-        WebDriver driver = Driver.getWebDriver(); // getWebDriver возвращает созданный объект driver
+        Driver.getWebDriver();
         Driver.openPage("https://www.apple.com/");
     }
 
+    //@AfterTest
     public static void closeBrowser() {
-
         Driver.closeBrowser();
     }
 
 }
 
-
 // Создать класс BaseTest и унаследоваться от него.
-// TODO-done BaseTest будет содержать открытие и закрытие браузера, необходимые настройки браузера - общие для всех тестов.
+// BaseTest будет содержать открытие и закрытие браузера, необходимые настройки браузера - общие для всех тестов.

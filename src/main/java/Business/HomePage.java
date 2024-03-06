@@ -4,8 +4,6 @@ import Core.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
     private final By searchButton = By.xpath("//a[@id='globalnav-menubutton-link-search']");
@@ -16,12 +14,16 @@ public class HomePage extends BasePage {
         searchButtonElement.click();
     }
 
-    public void clickSearchInput() {
-        WebDriverWait wait = Driver.getWebDriverWait(); // ждем появления шторки с инпутом
-        WebElement searchInputElement = wait.until(ExpectedConditions.visibilityOfElementLocated(searchInput));
-        searchInputElement.sendKeys("iPhone 15");
+    public void enterValueInSearchInput(String searchValue) {
+        WebElement searchInputElement = Driver.waitElementIsVisible(searchInput);
+        searchInputElement.sendKeys(searchValue);
+    }
+
+    public void clickEnterOnSearchInput() {
+        WebElement searchInputElement = Driver.waitElementIsVisible(searchInput);
         searchInputElement.sendKeys(Keys.ENTER);
     }
+
 }
 
 // Business layer (в папке src -> main -> java)
@@ -29,5 +31,5 @@ public class HomePage extends BasePage {
 // Page object - классы, которые соответствуют каждой тестируемой странице приложения
 // внутри элементы - поля класса и методы - что с этими элементами делаем.
 // Все действия с элементами должны быть залогированы. Т.е. должен быть лог, в котором понятно описано действие.
-//TODO-done
 // By.xpath("//a[@class='globalnav-link globalnav-link-search']") - нестабильный локатор из-за пробела !!!
+// вынести iPhone 15 в переменные
