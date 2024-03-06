@@ -1,8 +1,11 @@
 package Core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -21,7 +24,7 @@ public class Driver {
         return driver; // возвращаем driver типа WebDriver
     }
 
-    // TODO-done почитать про паттерн сингл тон
+    // почитать про паттерн сингл тон
     // открытие браузера - сделали так, что бы открывался только один браузер
 
     public static void openPage(String page) { // дописали void т.к не надо return
@@ -34,6 +37,12 @@ public class Driver {
         Duration duration = Duration.ofSeconds(seconds);
         WebDriverWait wait = new WebDriverWait(driver, duration);
         return wait;
+    }
+
+    public static WebElement waitElementIsVisible(By element) {
+        WebDriverWait wait = Driver.getWebDriverWait(); // ждем появления элемента
+        WebElement elementIsVisible = wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        return elementIsVisible;
     }
 
     public static void closeBrowser() {
