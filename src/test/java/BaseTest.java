@@ -1,7 +1,6 @@
 import Core.Driver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.Assert;
 
 
 public class BaseTest {
@@ -12,8 +11,9 @@ public class BaseTest {
         Driver.openPage("https://www.apple.com/");
     }
 
-    //@AfterTest
+    @AfterTest
     public static void closeBrowser() {
+
         Driver.closeBrowser();
     }
 

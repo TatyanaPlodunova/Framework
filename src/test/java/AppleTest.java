@@ -5,7 +5,7 @@ public class AppleTest extends BaseTest {
 
     @Test(description = "Проверка соответствия результатов поиска запросу")
     public void verifySearchResult() {
-        final String searchValue = "iPhone 12";
+        final String searchValue = "iPhone 15";
 
         Steps steps = new Steps();
         steps.enterValueAndSearch(searchValue);
