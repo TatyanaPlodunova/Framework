@@ -1,4 +1,5 @@
 package Steps;
+
 import Business.HomePage;
 import Business.ResultPage;
 
@@ -9,15 +10,13 @@ import org.testng.Assert;
 import java.util.List;
 
 
-
 public class Steps {
-    private HomePage homePage = new HomePage();
-    private ResultPage resultPage = new ResultPage();
-
-    Logger log = LoggerFactory.getLogger(HomePage.class);
+    private final HomePage homePage = new HomePage();
+    private final ResultPage resultPage = new ResultPage();
+    Logger log = LoggerFactory.getLogger(Steps.class);
 
     public void enterValueAndSearch(String searchValue) {
-        log.error("Ввод значения " + searchValue + " для поиска");
+        log.info("Ввод значения " + searchValue + " для поиска");
         homePage.clickSearchButton();
         homePage.enterValueInSearchInput(searchValue);
         homePage.clickEnterOnSearchInput();
@@ -25,8 +24,9 @@ public class Steps {
 
     public void verifySearchResult(String searchValue) {
         List<Boolean> resultList = resultPage.getSearchResultList(searchValue);
+        log.info("Проверка на соответствие результатов поиска " + searchValue);
         for (Boolean result : resultList) { // цикл для проверки каждой переменной
-            Assert.assertTrue(result, "В результатах поиска нет искомого значения" + searchValue);
+            Assert.assertTrue(result, "В результатах поиска нет искомого значения " + searchValue);
         }
     }
 }

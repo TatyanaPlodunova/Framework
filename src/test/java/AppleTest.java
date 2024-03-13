@@ -5,13 +5,19 @@ public class AppleTest extends BaseTest {
 
     @Test(description = "Проверка соответствия результатов поиска запросу")
     public void verifySearchResult() {
-        final String searchValue = "iPhone 12";
+        final String searchValue = "iPhone 15";
 
         Steps steps = new Steps();
         steps.enterValueAndSearch(searchValue);
         steps.verifySearchResult(searchValue);
 
     }
+// todo написать тест на негативный сценарий логина
+    @Test(description = "Негативная проверка авторизации")
+    public void errorLogin() {
+
+    }
+
 }
 
 // Test layer (находится в папке src -> test -> java)
@@ -23,6 +29,6 @@ public class AppleTest extends BaseTest {
 
 // выделить класс steps, где будут собраны типовые шаги
 
-// todo - добавить логи slf4j (например к степам - подписать что делает степ) - погуглить
+// добавить логи slf4j (например к степам - подписать что делает степ) - погуглить
 
 

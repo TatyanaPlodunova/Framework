@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,7 +21,7 @@ public class Driver {
     public static WebDriver getWebDriver() { // в методе указали WebDriver вместо void
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(); // объявляем переменную драйвер
+            driver = new ChromeDriver();// объявляем переменную драйвер
         }
         return driver; // возвращаем driver типа WebDriver
     }
@@ -30,6 +32,10 @@ public class Driver {
     public static void openPage(String page) { // дописали void т.к не надо return
 
         driver.get(page); // открываем ссылку в браузере
+    }
+
+    public static void maximizeWindow(){ // настройка чтобы браузер раскрывался на весь экран
+        driver.manage().window().maximize();
     }
 
     public static WebDriverWait getWebDriverWait() { // по аналогии с WebDriver getWebDriver()
@@ -49,6 +55,17 @@ public class Driver {
 
         driver.quit(); // закрываем браузер
     }
+
+// todo открытие браузера в инкогнито
+
+//    public static void incognitoChrome(){
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("incognito");
+//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+//        WebDriver chromedriver=new ChromeDriver(capabilities);
+//    }
+
 }
 
 // Core layer (в папке src -> main -> java)

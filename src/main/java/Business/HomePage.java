@@ -10,16 +10,19 @@ public class HomePage extends BasePage {
     private final By searchInput = By.xpath("//input[@class='globalnav-searchfield-input']");
 
     public void clickSearchButton() {
+        log.info("Нажатие кнопки поиска");
         WebElement searchButtonElement = driver.findElement(searchButton);
         searchButtonElement.click();
     }
 
     public void enterValueInSearchInput(String searchValue) {
+        log.info("Ввод поискового значения " + searchValue);
         WebElement searchInputElement = Driver.waitElementIsVisible(searchInput);
         searchInputElement.sendKeys(searchValue);
     }
 
     public void clickEnterOnSearchInput() {
+        log.info("Нажатие кнопки enter");
         WebElement searchInputElement = Driver.waitElementIsVisible(searchInput);
         searchInputElement.sendKeys(Keys.ENTER);
     }
