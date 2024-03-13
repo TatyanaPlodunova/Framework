@@ -12,6 +12,12 @@ public class AppleTest extends BaseTest {
         steps.verifySearchResult(searchValue);
 
     }
+// todo написать тест на негативный сценарий логина
+    @Test(description = "Негативная проверка авторизации")
+    public void errorLogin() {
+
+    }
+
 }
 
 // Test layer (находится в папке src -> test -> java)
@@ -23,6 +29,6 @@ public class AppleTest extends BaseTest {
 
 // выделить класс steps, где будут собраны типовые шаги
 
-// todo - добавить логи slf4j (например к степам - подписать что делает степ) - погуглить
+// добавить логи slf4j (например к степам - подписать что делает степ) - погуглить
 
 

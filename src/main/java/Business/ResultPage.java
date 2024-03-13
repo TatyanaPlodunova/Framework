@@ -10,6 +10,7 @@ public class ResultPage extends BasePage {
     private final By searchResults = By.xpath("//a[@class='rf-serp-productname-link']");
 
     public List<Boolean> getSearchResultList(String result) { // для получения листа булиевых переменных
+        log.info("Получение результатов поиска");
         List<WebElement> searchResultElements = driver.findElements(searchResults); // лист веб-элементов найденных по xpath
         int size = searchResultElements.size(); // размер листа веб-элементов
         List<Boolean> resultList = new ArrayList<>(); // лист булиевых переменных по результатам поиска

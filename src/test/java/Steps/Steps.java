@@ -13,22 +13,20 @@ import java.util.List;
 public class Steps {
     private final HomePage homePage = new HomePage();
     private final ResultPage resultPage = new ResultPage();
-    Logger log = LoggerFactory.getLogger(HomePage.class);
+    Logger log = LoggerFactory.getLogger(Steps.class);
 
     public void enterValueAndSearch(String searchValue) {
         log.info("Ввод значения " + searchValue + " для поиска");
         homePage.clickSearchButton();
         homePage.enterValueInSearchInput(searchValue);
         homePage.clickEnterOnSearchInput();
-        log.info("Значение " + searchValue + " введено успешно");
     }
 
     public void verifySearchResult(String searchValue) {
-        log.info("Поиск значения " + searchValue + " на странице результатов поиска");
         List<Boolean> resultList = resultPage.getSearchResultList(searchValue);
+        log.info("Проверка на соответствие результатов поиска " + searchValue);
         for (Boolean result : resultList) { // цикл для проверки каждой переменной
             Assert.assertTrue(result, "В результатах поиска нет искомого значения " + searchValue);
         }
-        log.info("Поисковая выдача соответствует запросу");
     }
 }
